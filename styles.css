@@ -1,0 +1,227 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Roboto', sans-serif;  /* Main font for body text */
+    color: #333;
+    background-color: #F6F4F0; /* Off-white background */
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+  
+header {
+    background-color: #2E5077; /* Deep blue */
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;  /* Font for header */
+}
+  
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+  
+header nav ul li {
+    list-style-type: none;
+}
+  
+header nav ul li a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+  
+header nav ul li a:hover {
+    color: #4DA1A9; /* Soft teal on hover */
+}
+  
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif; /* Header font */
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+  
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #e1e1e1; /* Light gray */
+}
+  
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    background-color: #4DA1A9; /* Soft teal button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+  
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #79D7BE; /* Lighter teal on hover */
+    transform: scale(1.05);
+}
+  
+.section {
+    padding: 60px 20px;
+    background: #fff; /* White background */
+    border-radius: 8px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+  
+.section h2 {
+    font-family: 'Space Grotesk', sans-serif; /* Font for section headers */
+    font-size: 2.5em;
+    color: #2E5077; /* Deep blue */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+  
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+  
+.profile-container {
+    margin-bottom: 20px;
+}
+  
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #2E5077; /* Deep blue border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+  
+.intro {
+    font-size: 1.1em;
+    text-align: center;
+    color: #555; /* Dark gray for intro text */
+}
+  
+.details {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+  
+.details h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2E5077; /* Deep blue */
+}
+  
+.details ul {
+    list-style-type: none;
+}
+  
+.details ul li {
+    margin-bottom: 10px;
+}
+  
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+  
+.project {
+    background: #79D7BE; /* Light teal background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+}
+  
+.project h3 {
+    font-size: 1.4em;
+    color: #2E5077; /* Deep blue */
+    margin-bottom: 10px;
+}
+  
+form {
+    display: grid;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #F6F4F0; /* Off-white background */
+    border-radius: 8px;
+}
+  
+form input, form textarea {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #fff;
+    color: #333;
+}
+  
+form button {
+    padding: 12px 25px;
+    background-color: #4DA1A9; /* Soft teal */
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+form button:hover {
+    background-color: #79D7BE; /* Lighter teal on hover */
+}
+  
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+  
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
