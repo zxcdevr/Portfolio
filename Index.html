@@ -20,7 +20,7 @@
     </nav>
     <div class="hero">
       <h1>Paul Henricks N. Jaro</h1>
-      <p>Aspiring Software Developer | IT Specialist</p>
+      <p>Aspiring Software Developer | IT Specialist | Aspiring Technical Support</p>
       <div class="cta-buttons">
         <a href="#portfolio" class="btn-primary">View My Work</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
@@ -37,7 +37,7 @@
           <img src="profile.png" alt="Paul Henricks N. Jaro" class="profile-photo">
         </div>
         <p class="intro">
-          Hi! I'm Paul Henricks N. Jaro, an IT professional passionate about solving technical challenges and building impactful software solutions. I specialize in web development, software engineering, and database management. Currently, I'm pursuing my Bachelor's degree in Information Technology.
+          Hi! I'm Paul Henricks N. Jaro, an IT professional passionate about solving technical challenges and building impactful software solutions. I specialize in web development, software engineering, and database management. Motivated IT beginner with a focus on encoding, data entry, and basic technical support. Eager to learn and contribute to efficient system operations while developing my skills in a professional environment. Currently, I'm pursuing my Bachelor's degree in Information Technology.
         </p>
       </div>
       <div class="details">
@@ -52,7 +52,7 @@
         <div>
           <h3>Education</h3>
           <p><strong>STI College Caloocan</strong> - Bachelor of Science in IT (2021–Present)</p>
-          <p><strong>Caloocan High School</strong> - High School Diploma (2015–2021)</p>
+          <p><strong>La Consolacion College Caloocan</strong> - Information Technology (2018 – 2021)</p>
         </div>
       </div>
     </section>
@@ -98,6 +98,8 @@
         <li><strong>Linux Professional Institute</strong> - Completion of Coursework (2022)</li>
         <li><strong>Treasurer, BSIT Club</strong> - Managed club finances and events</li>
         <li><strong>2nd Year Representative, BSIT Club</strong> - Represented peers in organizational activities</li>
+        <li><strong>Best In Capstone in Reservation Management</strong> - ICTE 2024: Symposium and Coloquim</li>
+        <li><strong>Best In Capstone Presenter</strong> - ICTE 2024: Symposium and Coloquim</li>
       </ul>
     </section>
 
@@ -116,6 +118,19 @@
 
         <button type="submit" class="btn-primary">Send Message</button>
       </form>
+
+      <!-- Connect with Me Links -->
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/henricksjaro" target="_blank" class="btn-linkedin">
+          <i class="fab fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="https://t.me/paulhenricks" target="_blank" class="btn-telegram">
+          <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+        <a href="https://www.facebook.com/hnrcks/" target="_blank" class="btn-facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+      </div>
     </section>
   </main>
 
@@ -127,66 +142,61 @@
     })();
 
     document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+      event.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
 
-  if (!name || !email || !message) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Oops...',
-      text: 'Please fill out all fields!',
-      confirmButtonColor: '#FF5722',
+      if (!name || !email || !message) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Please fill out all fields!',
+          confirmButtonColor: '#FF5722',
+        });
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Email',
+          text: 'Please enter a valid email address.',
+          confirmButtonColor: '#FF5722',
+        });
+      } else {
+        const formData = {
+          from_name: name,
+          user_email: email,
+          message: message,
+        };
+
+        emailjs.send("service_dz6xavg", "template_mojmpx1", formData)
+        .then(function(response) {
+          console.log('Email sent successfully:', response);  // Log the response
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            text: `Your message has been sent successfully to ${email}.`,
+            confirmButtonColor: '#4DA1A9',
+          });
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          console.error('Error:', error);  // Log the error for debugging
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to send the message. Please try again.',
+            confirmButtonColor: '#FF5722',
+          });
+        });
+      }
     });
-  } else if (!/\S+@\S+\.\S+/.test(email)) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Invalid Email',
-      text: 'Please enter a valid email address.',
-      confirmButtonColor: '#FF5722',
-    });
-  } else {
-    const formData = {
-      from_name: name,
-      user_email: email,
-      message: message,
-    };
-
-    emailjs.send("service_dz6xavg", "template_mojmpx1", formData)
-  .then(function(response) {
-    console.log('Email sent successfully:', response);  // Log the response
-    Swal.fire({
-      icon: 'success',
-      title: 'Message Sent!',
-      text: `Your message has been sent successfully to ${email}.`,
-      confirmButtonColor: '#4DA1A9',
-    });
-    document.getElementById('contact-form').reset();
-  }, function(error) {
-    console.error('Error:', error);  // Log the error for debugging
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Failed to send the message. Please try again.',
-      confirmButtonColor: '#FF5722',
-    });
-  });
-
-  }
-});
-
 
     // Open Modal with the clicked image
     function openModal(imageElement) {
       var modal = document.getElementById("imageModal");
       var modalImage = document.getElementById("modalImage");
-      var captionText = document.getElementById("modalCaption");
-
       modal.style.display = "block";
-      modalImage.src = imageElement.src; // Set modal image to clicked image source
-      captionText.innerHTML = imageElement.alt; // Set caption text from alt attribute
+      modalImage.src = imageElement.src;
     }
 
     // Close Modal
@@ -197,10 +207,9 @@
   </script>
 
   <!-- Image Modal -->
-  <div id="imageModal" class="modal">
+  <div id="imageModal" class="modal" onclick="closeModal()">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="modalCaption"></div>
+    <img id="modalImage" class="modal-content">
   </div>
 </body>
 </html>
